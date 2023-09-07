@@ -1,9 +1,14 @@
 import { client } from "@/utils/configSanity";
 
-import {PortableText} from '@portabletext/react'
+import { PortableText } from '@portabletext/react'
 
 async function getData() {
-  const query = `*[_type == 'pet']`;
+  const query = `*[_type == 'page']{
+    title,
+    subpages[]->{
+      title
+    }
+  }`;
   const data = await client.fetch(query);
   return data;
 }

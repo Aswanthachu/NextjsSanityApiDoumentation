@@ -7,7 +7,7 @@ export default defineConfig({
   name: 'default',
   title: 'kks-sanity',
 
-  projectId: '6i7e6ksb',
+  projectId: '3bjwcw6a',
   dataset: 'production',
 
   plugins: [deskTool(), visionTool()],
