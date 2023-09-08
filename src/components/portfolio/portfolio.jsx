@@ -15,7 +15,7 @@ async function getData() {
 
 const Portfolio = async () => {
   const data = await getData();
-  console.log(data);
+  // console.log(data);
   return (
     <div>
       <h1>Portfolio</h1>
