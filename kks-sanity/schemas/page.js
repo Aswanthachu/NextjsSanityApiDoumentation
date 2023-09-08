@@ -10,6 +10,11 @@ export default {
       type: 'string',
     },
     {
+      name:'slug',
+      title:'Slug',
+      type:'slug'
+    },
+    {
       name: 'subpages',
       title: 'Subpages',
       type: 'array',

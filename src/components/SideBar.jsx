@@ -8,7 +8,7 @@ async function getData() {
   | order(_createdAt asc)
   {
     title,
-    "subpageTitles": subpages[]->{
+    "subpages": subpages[]->{
       title
     }
   }`;
@@ -28,16 +28,24 @@ const SideBar = async () => {
         <BoltIcon className="w-4 text-gray-400" />
       </div>
       <div className="p-4 flex-grow">
-        <ul >
+        <ul>
           {data?.map((item, index) => (
-            <Link href={'/user'}>
-              <li
-                className="py-2 rounded-md bg-[#F5FBFF] text-[#556CD6] px-2 font-semibold text-sm mt-1"
-                key={index}
-              >
-                {item?.title}
-              </li>
-            </Link>
+            <li key={index}>
+              <Link href={`/${item?.title}`}>
+                <p className="py-2 rounded-md bg-[#F5FBFF] text-[#556CD6] px-2 font-semibold text-sm mt-1">
+                  {item?.title}
+                </p>
+              </Link>
+              <ul>
+                {item?.subpages?.map((subpage, indx) => (
+                  <Link href={`/${item.title}/${subpage?.title}`} key={indx}>
+                    <li className="py-2 rounded-md bg-[#F5FBFF] text-[#556CD6] px-5 font-semibold text-sm mt-1">
+                      {subpage?.title}
+                    </li>
+                  </Link>
+                ))}
+              </ul>
+            </li>
           ))}
         </ul>
       </div>
