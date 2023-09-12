@@ -18,7 +18,12 @@ export default {
         name : "name",
         title:'Name',
         type:"string"
-      }
+      },
+      // {
+      //   name : "Content",
+      //   title:'Name',
+      //   type:"string"
+      // }
     ],
   };
   

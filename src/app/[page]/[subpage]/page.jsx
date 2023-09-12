@@ -1,9 +1,8 @@
-import { SideBar } from "@/components"
 
 const page = () => {
   return (
-    <section>
-     <SideBar />
+    <section className=" bg-red-500 w-full">
+     page
     </section>
   )
 }

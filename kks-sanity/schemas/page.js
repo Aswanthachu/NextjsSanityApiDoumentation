@@ -1,4 +1,5 @@
 // schemas/page.js
+
 export default {
   name: 'page',
   title: 'Page',
@@ -13,6 +14,12 @@ export default {
       name:'slug',
       title:'Slug',
       type:'slug'
+    },
+    {
+      name:'content',
+      title:'Content',
+      type:'array',
+      of: [{type: 'block'}]
     },
     {
       name: 'subpages',
