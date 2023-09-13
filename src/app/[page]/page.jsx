@@ -9,7 +9,7 @@ const page = async (context) => {
 
   return (
     <div className=" p-5 w-8/12">
-      {!pageData.content && <h2 className="font-xl font-bold my-3 underline">{pageData.title}</h2>}
+      {!pageData.content && <h2 className="text-xl font-bold my-3 underline">{pageData.title}</h2>}
       <PortableText
         value={pageData.content ? pageData.content : pageData.description}
         components={{ ...components }}
@@ -22,7 +22,7 @@ const page = async (context) => {
             <Tooltip  dataToCopy={pageData.url}/>
           </div>
         </div>
-        <div className="px-5 py-2 overflow-x-auto font-semibold bg-[#4f566b]">{pageData.url}</div>
+        <div className="px-5 py-2 overflow-x-auto font-semibold bg-[#4f566b] no-scrollbar rounded-b-lg">{pageData.url}</div>
       </div>
     </div>
   );
