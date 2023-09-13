@@ -1,8 +1,6 @@
 import { client } from "@/utils/configSanity";
 
 export async function getData() {
-  // const revalidate = 60;
-
   const query = `*[_type == 'page']
     | order(_createdAt asc)
     {
@@ -18,23 +16,49 @@ export async function getData() {
 }
 
 export async function fetchPageData(slug) {
-
   const query = `*[_type == "page" && slug.current == $slug][0] {
     title,
     content,
     description,
     url
   }`;
-  const data = await client.fetch(query, { slug },{cache:'no-store'});
+  const data = await client.fetch(query, { slug }, { cache: "no-store" });
   return data;
 }
 
 export async function getAllPages() {
-
   const query = `*[_type == 'page']
     {
       slug,
     }`;
   const data = await client.fetch(query);
+  return data;
+}
+
+export async function getAllSubPages() {
+  const query = `*[_type == 'subpage']
+    {
+      slug,
+    }`;
+  const data = await client.fetch(query);
+  return data;
+}
+
+export async function getSubPageData({ pageSlug, subpageSlug }) {
+  const query = `*[_type == 'subpage' &&  slug.current == $subpageSlug][0]
+    {
+      slug,
+      title
+    }`;
+
+    //references(*[_type == 'page' && slug.current == $pageSlug]._id) &&
+  
+  const data = await client.fetch(
+    query,
+    { subpageSlug, pageSlug },
+    { cache: "no-store" }
+  );
+
+  console.log(data);
   return data;
 }
