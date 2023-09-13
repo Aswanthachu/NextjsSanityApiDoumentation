@@ -9,7 +9,6 @@ import { useEffect, useState } from "react";
 const SideBar =() => {
 
   const [data,setData]=useState([]);
-
   const [openList,setOpenList]=useState([]);
 
   useEffect(() => {

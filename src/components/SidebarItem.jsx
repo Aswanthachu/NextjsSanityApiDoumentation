@@ -1,8 +1,6 @@
-"use client";
 
 import Link from "next/link";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
-import { useState } from "react";
 
 const SidebarItem = ({ item,openList,setOpenList }) => {
 
