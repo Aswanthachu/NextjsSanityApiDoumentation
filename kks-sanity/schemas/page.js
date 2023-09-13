@@ -15,6 +15,18 @@ export default {
       title:'Slug',
       type:'slug'
     },
+
+    {
+      name:'description',
+      title:'Description',
+      type:'array',
+      of: [{type: 'block'}]
+    },
+    {
+      name: 'url',
+      title: 'URL',
+      type: 'string',
+    },
     {
       name:'content',
       title:'Content',

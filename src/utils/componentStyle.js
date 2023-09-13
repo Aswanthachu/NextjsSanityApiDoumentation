@@ -60,8 +60,8 @@ const imageBuilder = urlBuilder({
         <ol className="list-decimal ml-8 my-4">{children}</ol>
       ),
       li: ({ children }) => <li className="mb-2">{children}</li>,
-      p: ({ children }) => <p className="text-xl my-4 mb-2">{children}</p>,
-      b:({ children }) => <p className="font-bold">{children}</p>,
+      p: ({ children }) => <p className="text-sm my-6">{children}</p>,
+      b:({ children }) => <p className="font-semibold">{children}</p>,
     },
     marks: {
       link: ({ children, value }) => {

@@ -18,10 +18,12 @@ export async function getData() {
 }
 
 export async function fetchPageData(slug) {
-  // const revalidate = 60;
 
   const query = `*[_type == "page" && slug.current == $slug][0] {
+    title,
     content,
+    description,
+    url
   }`;
   const data = await client.fetch(query, { slug },{cache:'no-store'});
   return data;
