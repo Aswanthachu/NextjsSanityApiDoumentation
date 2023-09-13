@@ -2,40 +2,23 @@
 
 import { BoltIcon, ArrowLongRightIcon } from "@heroicons/react/24/solid";
 import { Button } from "./ui/button";
-import { client } from "@/utils/configSanity";
 import { SidebarItem } from ".";
+import { getData } from "@/lib/pages";
 import { useEffect, useState } from "react";
 
-
-
-
-const SideBar = () => {
+const SideBar =() => {
 
   const [data,setData]=useState([]);
 
-  useEffect(()=>{
-    async function getData() {
+  const [openList,setOpenList]=useState([]);
 
-      // const revalidate = 60;
-    
-      const query = `*[_type == 'page']
-      | order(_createdAt asc)
-      {
-        slug,
-        title,
-        content,
-        "subpages": subpages[]->{
-          slug,
-          title
-        }
-      }`;
-      const data = await client.fetch(query); //,{ cache: 'no-store' }
-      console.log(data);
-      // return data;
-      setData(data);
+  useEffect(() => {
+    async function get() {
+      const dataFromDb = await getData();
+      setData(dataFromDb);
     }
-    getData();
-  },[]);
+    get();
+  }, []);
 
   return (
     <section className="w-[250px] border-r border-gray-300 h-screen flex flex-col">
@@ -47,7 +30,7 @@ const SideBar = () => {
       </div>
       <div className="p-4 flex-grow">
         {data?.map((item, index) => (
-          <SidebarItem key={index} item={item} />
+          <SidebarItem key={index} item={item} openList={openList} setOpenList={setOpenList}/>
         ))}
       </div>
       <div className="top-auto border-t w-full px-5 py-2 border-gray-300">

@@ -4,8 +4,18 @@ import Link from "next/link";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 
-const SidebarItem = ({ item }) => {
-  const [openItem, setOpenItem] = useState("");
+const SidebarItem = ({ item,openList,setOpenList }) => {
+
+  const handleOpen=(slug)=>{
+    if(openList.includes(slug)){
+      setOpenList(prevState=>prevState.filter(itm=>itm !== slug));
+    }else{
+      setOpenList(prevState=>([
+        ...prevState,slug
+      ]))
+    }
+  }
+  
   if (item.subpages) {
     return (
       <li className="list-none">
@@ -15,15 +25,15 @@ const SidebarItem = ({ item }) => {
             {item?.subpages?.length > 0 && (
               <ChevronDownIcon
                 className={`w-4 mt-1 mr-2 font-bold ${
-                  openItem === item.slug.current && "rotate-180"
+                  openList.includes(item.slug.current) && "rotate-180"
                 }`}
-                onClick={() => setOpenItem(item.slug.current)}
+                onClick={() => handleOpen(item.slug.current)}
               />
             )}
           </div>
         </Link>
         <ul>
-          {openItem === item.slug.current &&
+          {openList.includes(item.slug.current) &&
             item?.subpages?.map((subpage, indx) => (
               <Link
                 href={`/${item.slug.current}/${subpage?.slug.current}`}
