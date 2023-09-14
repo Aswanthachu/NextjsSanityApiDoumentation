@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="flex">
           <SideBar />
-          <div className="w-full overflow-hidden">{children}</div>
+          <div className="w-full ml-[250px]">{children}</div>
       </body>
     </html>
   );

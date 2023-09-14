@@ -20,7 +20,7 @@ const SideBar =() => {
   }, []);
 
   return (
-    <section className="w-[250px] border-r border-gray-300 h-screen flex flex-col">
+    <section className="w-[250px] border-r border-gray-300 h-screen  flex flex-col fixed">
       <div className="flex items-center gap-2 font-bold p-5">
         <h1 className="text-2xl text-gray-600">KKS</h1>
         <span className="text-xl text-blue-400">API</span>

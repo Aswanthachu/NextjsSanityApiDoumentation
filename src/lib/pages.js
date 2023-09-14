@@ -48,14 +48,20 @@ export async function getSubPageData({ pageSlug, subpageSlug }) {
   const query = `*[_type == 'subpage' &&  slug.current == $subpageSlug][0]
     {
       slug,
-      title
+      title,
+      description,
+      method,
+      url,
+      parameters,
+      middlewares,
+      responses
     }`;
 
     //references(*[_type == 'page' && slug.current == $pageSlug]._id) &&
   
   const data = await client.fetch(
     query,
-    { subpageSlug, pageSlug },
+    { subpageSlug },
     { cache: "no-store" }
   );
 

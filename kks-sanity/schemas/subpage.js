@@ -51,13 +51,51 @@ export default {
       type: 'array',
       of: [
         {
-          type: 'string',
+          name: 'parameter',
+          title: 'Parameter',
+          type: 'document',
+          fields: [
+            {
+              name: 'parameter_name',
+              title: 'Parameter Name',
+              type: 'string',
+            },
+            {
+              name: 'description',
+              title: 'Description',
+              type: 'string',
+            },
+          ],
         },
       ],
     },
     {
-      name: 'statusCodes',
-      title: 'Status Codes',
+      name: 'middlewares',
+      Title: 'Middlewares',
+      type: 'array',
+      of: [
+        {
+          name: 'middleware',
+          title: 'Middleware',
+          type: 'document',
+          fields: [
+            {
+              name: 'middleware_name',
+              title: 'Middleware Name',
+              type: 'string',
+            },
+            {
+              name: 'description',
+              title: 'Description',
+              type: 'string',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'responses',
+      title: 'Responses',
       type: 'array',
       of: [
         {
@@ -71,17 +109,36 @@ export default {
               type: 'number',
             },
             {
-              name: 'responseMessage',
-              title: 'Response Message',
-              type: 'string',
-            },
-            {
-              name: 'images',
-              title: 'Images',
-              type: 'image',
-              options: {
-                hotspot: true,
-              },
+              name: 'responseData',
+              title: 'Response Data',
+              type: 'array',
+              of: [
+                {
+                  name: 'responsemessageimage',
+                  title: 'Response Message and Example',
+                  type: 'document',
+                  fields: [
+                    {
+                      name: 'responseMessage',
+                      title: 'Response Message',
+                      type: 'string',
+                    },
+                    {
+                      name: 'reason',
+                      title: 'Reason',
+                      type: 'string',
+                    },
+                    {
+                      name: 'images',
+                      title: 'Images',
+                      type: 'image',
+                      options: {
+                        hotspot: true,
+                      },
+                    },
+                  ],
+                },
+              ],
             },
           ],
         },
