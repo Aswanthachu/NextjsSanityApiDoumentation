@@ -61,6 +61,19 @@ export default {
               type: 'string',
             },
             {
+              name: 'type',
+              title: 'Parameter Type',
+              type: 'string',
+              initialValue: 'string',
+              options: {
+                list: [
+                  {title: 'string', value: 'string'},
+                  {title: 'number', value: 'number'},
+                  {title: 'Mongoose ObjectId', value: 'Mongoose ObjectId'},
+                ],
+              },
+            },
+            {
               name: 'description',
               title: 'Description',
               type: 'string',

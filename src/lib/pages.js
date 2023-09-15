@@ -11,7 +11,7 @@ export async function getData() {
         title
       }
     }`;
-  const data = await client.fetch(query);
+  const data = await client.fetch(query, { cache: "no-store" });
   return data;
 }
 
@@ -57,8 +57,8 @@ export async function getSubPageData({ pageSlug, subpageSlug }) {
       responses
     }`;
 
-    //references(*[_type == 'page' && slug.current == $pageSlug]._id) &&
-  
+  //references(*[_type == 'page' && slug.current == $pageSlug]._id) &&
+
   const data = await client.fetch(
     query,
     { subpageSlug },

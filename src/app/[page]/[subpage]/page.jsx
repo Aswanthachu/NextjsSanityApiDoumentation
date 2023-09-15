@@ -12,8 +12,6 @@ const page = async ({ params }) => {
     subpageSlug: params.subpage,
   });
 
-  console.log(urlFor(pageData.responses[0].responseData[0].images.asset._ref));
-
   return (
     <section className="p-5 w-8/12 overflow-y-auto">
       <h1 className="underline text-lg font-semibold">
@@ -23,7 +21,7 @@ const page = async ({ params }) => {
         value={pageData.content ? pageData.content : pageData.description}
         components={{ ...components }}
       />
-      <h1 className="mt-5 font-semibold">Method : {pageData.method}</h1>
+      <h1 className="mt-5 font-semibold">Method : <span className="text-orange-500 text-xl font-bold">{pageData.method}</span></h1>
       <UrlBox dataToCopy={pageData.url} />
       {pageData.parameters && (
         <div className="mt-5">
@@ -32,8 +30,8 @@ const page = async ({ params }) => {
             {pageData.parameters.map((param, index) => (
               <li key={index} className="">
                 <div>
-                  <h5 className="font-semibold underline mb-1">
-                    {param.parameter_name}
+                  <h5 className="font-semibold mb-1 flex">
+                    <p className="underline mr-1">{param.parameter_name} </p>(<span className="text-blue-600 ">{param.type}</span>)
                   </h5>
                   <p>{param.description}</p>
                 </div>
