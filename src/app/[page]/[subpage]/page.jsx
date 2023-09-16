@@ -14,7 +14,7 @@ const page = async ({ params }) => {
 
   return (
     <section className="p-5 w-8/12 overflow-y-auto">
-      <h1 className="underline text-lg font-semibold">
+      <h1 className="underline text-lg font-semibold mb-2">
         {pageData.title} Controller
       </h1>
       <PortableText

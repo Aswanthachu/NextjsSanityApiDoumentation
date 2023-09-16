@@ -65,6 +65,5 @@ export async function getSubPageData({ pageSlug, subpageSlug }) {
     { cache: "no-store" }
   );
 
-  console.log(data);
   return data;
 }
