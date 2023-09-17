@@ -71,7 +71,7 @@ const page = async ({ params }) => {
                       <li key={indx} className="space-y-3">
                         <p className=" font-bold">{respData.responseMessage}</p>
                         {respData.reason && <p><span className="font-semibold">Reason</span> : {respData.reason}</p>}
-                        <Image src={urlFor(respData.images.asset._ref)} alt="statusExample" height={400} width={700} />
+                        <img src={urlFor(respData.images.asset._ref)} alt="statusExample"  />
                       </li>
                     ))
                   }
