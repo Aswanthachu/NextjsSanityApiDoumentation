@@ -6,7 +6,7 @@ const SidebarMenu = ({data}) => {
   const [openList, setOpenList] = useState([]);
 
   return (
-    <div className="p-4 flex-grow">
+    <div className="p-4 flex-grow overflow-y-auto styled-scrollbar">
       {data?.map((item, index) => (
         <SidebarItem
           key={index}
