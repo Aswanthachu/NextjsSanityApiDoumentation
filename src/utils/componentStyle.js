@@ -2,6 +2,7 @@
 import urlBuilder from "@sanity/image-url";
 import { getImageDimensions } from "@sanity/asset-utils";
 import Link from "next/link";
+import Image from "next/image";
 
 const imageBuilder = urlBuilder({
     projectId:"3bjwcw6a",
@@ -13,7 +14,7 @@ const imageBuilder = urlBuilder({
       image: ({ value, isInline }) => {
         const { width, height } = getImageDimensions(value);
         return (
-          <img
+          <Image
             src={imageBuilder.image(value).url()}
             alt={value.alt || " "}
             loading="lazy"
@@ -29,7 +30,7 @@ const imageBuilder = urlBuilder({
       image: ({ value, isInline }) => {
         const { width, height } = getImageDimensions(value);
         return (
-          <img
+          <Image
             src={imageBuilder.image(value).url()}
             alt={value.alt || " "}
             loading="lazy"
