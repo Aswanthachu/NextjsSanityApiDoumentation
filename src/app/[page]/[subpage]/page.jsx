@@ -86,12 +86,12 @@ const page = async ({ params }) => {
   );
 };
 
-export async function generateStaticParams() {
-  const pages = await getAllSubPages();
+// export async function generateStaticParams() {
+//   const pages = await getAllSubPages();
 
-  return pages.map((pge) => ({
-    subpage: pge?.slug?.current.toString(),
-  }));
-}
+//   return pages.map((pge) => ({
+//     subpage: pge?.slug?.current.toString(),
+//   }));
+// }
 
 export default page;

@@ -20,12 +20,12 @@ const page = async (context) => {
   );
 };
 
-export async function generateStaticParams() {
-  const pages = await getAllPages();
+// export async function generateStaticParams() {
+//   const pages = await getAllPages();
 
-  return pages.map((pge) => ({
-    page: pge.slug.current.toString(),
-  }));
-}
+//   return pages.map((pge) => ({
+//     page: pge.slug.current.toString(),
+//   }));
+// }
 
 export default page;
