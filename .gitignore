@@ -6,6 +6,14 @@
 .pnp.js
 .env.local
 /src
+/.next
+.eslintrc.json
+.vercelignore
+components.json
+jsconfig.json
+next.config.js
+
+
 # testing
 /coverage
 
