@@ -9,9 +9,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="flex">
+      <body className="flex" suppressHydrationWarning={true}>
           <SideBar />
-          <div className="w-full ml-[250px]">{children}</div>
+          <div className="w-full ml-[250px]" suppressHydrationWarning={true}>{children}</div>
       </body>
     </html>
   );
