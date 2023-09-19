@@ -5,8 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 const imageBuilder = urlBuilder({
-    projectId:"3bjwcw6a",
-    dataset:'production',
+    projectId: `${process.env.PROJECT_ID}`,
+    dataset: `${process.env.DATASET}`,
   });
 
  export const components = {
