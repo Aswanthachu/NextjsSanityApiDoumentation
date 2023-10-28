@@ -1,8 +1,10 @@
 import imageUrlBuilder from "@sanity/image-url";
 
 const builder = imageUrlBuilder({
-  projectId: `${process.env.PROJECT_ID}`,
-  dataset: `${process.env.DATASET}`,
+  projectId: '4iobo6mp',
+  dataset: 'production',
+  // projectId: `${process.env.PROJECT_ID}`,
+  // dataset: `${process.env.DATASET}`,
   baseUrl: "https://cdn.sanity.io",
 });
 
